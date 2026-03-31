@@ -1,6 +1,6 @@
 from django.core.validators import MinLengthValidator
 from django.db import models
-
+from petstagram.photos.validators import validators_photos_size
 from petstagram.pets.models import Pet
 
 
@@ -9,7 +9,9 @@ class Photo(models.Model):
     DES_MIN_LENGTH = 10
     LOCATION_MAX_LENGTH = 30
 
-    photo = models.ImageField()
+    photo = models.ImageField(
+        validators=[validators_photos_size]
+    )
 
     description = models.TextField(
         max_length=DES_MAX_LENGTH,
@@ -27,4 +29,10 @@ class Photo(models.Model):
     tagged_pets = models.ManyToManyField(
         Pet, blank=True
     )
+
+    date_of_publication = models.DateField(
+        auto_now=True
+    )
+
+
 

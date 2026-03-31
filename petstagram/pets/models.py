@@ -25,8 +25,8 @@ class Pet(models.Model):
         blank=True
     )
 
-    # def __str__(self):
-    #     return f"{self.pk} {self.name} - {self.date_of_birth}"
+    def __str__(self):
+        return f"{self.name}"
     # class Meta:
     #     verbose_name_plural = 'Pet'
 
