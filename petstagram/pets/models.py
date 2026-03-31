@@ -31,7 +31,6 @@ class Pet(models.Model):
     #     verbose_name_plural = 'Pet'
 
     def save(self, *args, **kwargs):
-        self.slug = self.name.lower()
         super().save(*args, **kwargs)
 
         if not self.slug:
