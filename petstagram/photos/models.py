@@ -5,6 +5,8 @@ from petstagram.pets.models import Pet
 
 
 class Photo(models.Model):
+    str_fields = ['pk', 'photo', 'location']
+
     DES_MAX_LENGTH = 300
     DES_MIN_LENGTH = 10
     LOCATION_MAX_LENGTH = 30
